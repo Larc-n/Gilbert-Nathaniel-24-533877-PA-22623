@@ -20,7 +20,7 @@ int main ()
     }
     else if(D==0)
     {
-        int x= -b/(2*a);
+        float x= -b/(2*a);
         cout<< "x: "<< x<< endl;
     }
     else
