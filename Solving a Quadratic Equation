@@ -4,9 +4,9 @@ using namespace std;
 
 int main ()
 {
-    int a; cout<<"A: "; cin>> a;
-    int b; cout<<"B: "; cin>> b;
-    int c; cout<<"C: "; cin>> c;
+    float a; cout<<"A: "; cin>> a;
+    float b; cout<<"B: "; cin>> b;
+    float c; cout<<"C: "; cin>> c;
 
     float D= b*b - 4*a*c;
 
