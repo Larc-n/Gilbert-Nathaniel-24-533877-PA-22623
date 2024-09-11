@@ -1,0 +1,98 @@
+#include <stdio.h>
+#include <iostream>
+using namespace std;
+
+typedef struct
+{
+    string name;
+    int value;
+}bank;
+
+int uppercase(bool check, char* name);
+int main ()
+{
+//TOTAL_MURID___________________________________________________________________________________________________________________________________________________________________________________________________________
+    int total;
+    do{cout<< "How many people? "; cin>> total; cin.ignore();}
+    while(total>48 && total<58);
+
+//NAMA_MURID____________________________________________________________________________________________________________________________________________________________________________________________________________
+    bank store[total]; //store value of string
+    for(int zero=0; zero<total; zero++)
+    {
+        store[zero].value=0; //avoid trash memory
+        printf("%i. Name: ", zero+1); getline(cin, store[zero].name);
+    }
+    printf("\n");
+
+
+//LOOPING_CONDITION_____________________________________________________________________________________________________________________________________________________________________________________________________
+    //looping to compare word
+    //store[compare].name[loop] vs store[with].name[loop]
+    //name[loop] is char, while store[] is the string
+    for(int compare=0; compare<total-1; compare++)
+    {
+        for(int with=compare+1; with<total; with++)
+        {
+            for(int loop=0; store[compare].name[loop]!='\0' || store[with].name[loop]!='\0'; loop++)
+            {
+    //UPPERCASE________________________________________________________________________________________________________________________________________________________________________________________________________
+                bool check1=false, check2=false;
+                if(store[compare].name[loop]>64 && store[compare].name[loop]<91){store[compare].name[loop]+=32; check1=true;}
+                if(store[with].name[loop]>64 && store[with].name[loop]<91){store[with].name[loop]+=32; check2=true;}
+    //SPACING________________________________________________________________________________________________________________________________________________________________________________________________________
+                bool space1=false, space2=false;
+                char rechar1, rechar2;
+                if(store[compare].name[loop]==32){store[compare].name[loop]=64; space1=true;}
+                if(store[with].name[loop]==32){store[with].name[loop]=64; space2=true;}
+
+                if((store[compare].name[loop] < store[with].name[loop]) || (store[compare].name[loop] !='\0' && store[with].name[loop] =='\0'))
+                {
+            //ADDING_VALUE_TO_THE_WINNER_______________________________________________________________________________________________________________________________________________________________________________
+                    store[compare].value+=1;
+            //CHANGING_TO_ORIGINAL_VALUE_IF_SPACE_IS_TRUE_______________________________________________________________________________________________________________________________________________________________________
+                    if(space1==true){store[compare].name[loop]=32;}
+            //LOWER_CASING_____________________________________________________________________________________________________________________________________________________________________________________________
+                    uppercase(check1, &store[compare].name[loop]); uppercase(check2, &store[with].name[loop]);
+            //GOING_OUT_OF_THE_LOOP____________________________________________________________________________________________________________________________________________________________________________________
+                    break;
+                }
+
+                else if( (store[compare].name[loop] > store[with].name[loop]) || (store[compare].name[loop] =='\0' && store[with].name[loop] !='\0') )
+                {
+            //ADDING_VALUE_TO_THE_WINNER_______________________________________________________________________________________________________________________________________________________________________________
+                    store[with].value+=1;
+            //CHANGING_TO_ORIGINAL_VALUE_IF_SPACE_IS_TRUE_______________________________________________________________________________________________________________________________________________________________________
+                    if(space2==true){store[with].name[loop]=32;}
+            //LOWER_CASING_____________________________________________________________________________________________________________________________________________________________________________________________
+                    uppercase(check1, &store[compare].name[loop]); uppercase(check2, &store[with].name[loop]);
+            //GOING_OUT_OF_THE_LOOP____________________________________________________________________________________________________________________________________________________________________________________
+                    break;
+                }
+
+    //UPPER_CASE_INCASE_THERE_ISNT_A_WINNER____________________________________________________________________________________________________________________________________________________________________________
+                uppercase(check1, &store[compare].name[loop]); uppercase(check2, &store[with].name[loop]);
+            }
+        }
+    }
+//PRINTING_OUT_BY_ALPHABETICAL_ORDER___________________________________________________________________________________________________________________________________________________________________________________
+    for(int win_max_value=total-1; win_max_value>-1; win_max_value-- )
+    {
+    //LOOPING_THROUGH_ALL_OF_THE_NAME__________________________________________________________________________________________________________________________________________________________________________________
+        for(int b=0; b<total; b++)
+        {
+            //PRINTING_OUT_____________________________________________________________________________________________________________________________________________________________________________________________
+            if(store[b].value==win_max_value)
+            {cout<< store[b].name << ", ";}
+        }
+    }
+    cout<< endl;
+}
+
+
+int uppercase(bool check, char* name)
+{
+    if(check==true)
+    {name[0]-=32;}
+    return 0;
+}
