@@ -1,19 +1,30 @@
 #include <iostream>
+#include <cmath>
 using namespace std;
 
-int main()
+int main ()
 {
-    int n[3];
-    cout<<"Input a: "; cin>> n[0];
-    cout<<"Input b: "; cin>> n[1];
-    cout<<"Input c: "; cin>> n[2];
+    float a; cout<<"A: "; cin>> a;
+    float b; cout<<"B: "; cin>> b;
+    float c; cout<<"C: "; cin>> c;
 
-    int biggest=n[0];
-    for(int loop=1; loop<3; loop++)
+    float D= b*b - 4*a*c;
+
+    if(D>0)
     {
-        if(biggest<n[loop])
-        {biggest=n[loop];}
+        float x1= (-b+ sqrt(D))/2*a;
+        float x2= (-b- sqrt(D))/2*a;
+
+        cout<< "x1: "<< x1 << endl;
+        cout<< "x2: "<< x2 << endl;
     }
-    cout<< biggest<< endl;
-    return 0;
+    else if(D==0)
+    {
+        float x= -b/(2*a);
+        cout<< "x: "<< x<< endl;
+    }
+    else
+    {
+        cout<<"There are no real roots\n";
+    }
 }
