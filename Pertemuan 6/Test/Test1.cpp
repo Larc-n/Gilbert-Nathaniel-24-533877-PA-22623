@@ -11,7 +11,7 @@ typedef struct
 
 int main()
 {
-    array stuff[3];
+    array stuff[4];
     
     stuff[0].name = "Tupperware";
     stuff[0].price = 125;
