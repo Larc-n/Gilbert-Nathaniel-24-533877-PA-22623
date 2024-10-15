@@ -35,7 +35,7 @@ int main()
     
     int total=0; float mean=0;
 
-    for(int loop=0; loop<n; loop++)
+    for(int loop=0; loop<4; loop++)
     {
         total+=stuff[loop].quantity;
         mean+= (float)stuff[loop].price * (float)stuff[loop].quantity;
