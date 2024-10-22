@@ -29,6 +29,6 @@ int main()
         for(int loop=1; loop<11; loop++)
         {printf("%i x %i = %i\n", input, loop, input*loop);}
     }
-    }
+}
 
 
