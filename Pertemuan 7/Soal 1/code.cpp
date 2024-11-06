@@ -9,7 +9,6 @@ int main()
     for(int loop=0; loop<3; loop++)
     {
         int n=data[loop];
-        int output= fibo(n);
         printf("Input: %i\nOutput:%i\n\n", data[loop], fibo(n));
     }
 }
