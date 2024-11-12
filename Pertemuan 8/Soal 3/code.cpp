@@ -30,9 +30,6 @@ int main() {
     sequential_search(data, target);
     for(int loop=0; loop<7; loop++)
     { printf("NISN: %li, Nama: %s, Nilai: %i\n", data[loop].NISN, data[loop].nama.c_str(), data[loop].nilai); }
-
-
-
 }
 
 void sequential_search(array data[], int target)
