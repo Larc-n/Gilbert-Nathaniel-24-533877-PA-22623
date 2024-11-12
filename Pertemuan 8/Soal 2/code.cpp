@@ -29,7 +29,12 @@ int main() {
     cout<< endl;
 
     int urutan= binary_search(data, cari);
-    printf("The NISN you're looking for is: %li\nThe NISN is in %i\n", cari, urutan+1);
+    if(urutan==-1)
+    {printf("Nomor tidak ditemukan\n");}
+    else{
+        printf("The NISN you're looking for is: %li\nThe NISN is in %i\n", cari, urutan+1);
+    }
+
 }
 
 void insertion(array data[])
@@ -66,5 +71,5 @@ int binary_search(array data[], long int target)
         else
         {return mid;}
     }while(low<=high);
-    return mid;
+    return -1;
 }
