@@ -12,7 +12,7 @@ void insertion(array data[]);
 int binary_search(array data[], long int target);
 
 int main() {
-    long int cari = 9963959682;
+    long int cari = 9950310962;
 
     array data[7] = {
         {9960312699, "Handi Ramadhan", 90},
