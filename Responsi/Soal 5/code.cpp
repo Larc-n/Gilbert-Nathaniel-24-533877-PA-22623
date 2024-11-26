@@ -1,6 +1,5 @@
 #include <iostream>
 using namespace std;
-// soal no 4 dan 5
 
 void palindrome(string n);
 int length(string n);
